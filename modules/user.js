@@ -27,7 +27,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: [true, 'What is you email ID'],
     trim: true,
-    lowercase: true,
+    lowercase: [true, 'All letter must be small case'],
     unique: [true, 'Email must be unique'],
   },
   mobile: {
@@ -44,12 +44,12 @@ const UserSchema = mongoose.Schema({
   },
   gender: {
     type: String,
-    enum: 'male' || 'female',
+    enum: ['male', 'female'],
     required: [true, 'What is your gender'],
   },
   marritalStatus: {
     type: String,
-    enum: 'married' || 'unmarried',
+    enum: ['married', 'unmarried'],
   },
   city: {
     type: String,
